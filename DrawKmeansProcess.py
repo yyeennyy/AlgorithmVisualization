@@ -1,4 +1,4 @@
-# parameter 'data' : numpy array OR pd.DataFrame
+# parameter 'data' : numpy array OR pd.DataFrame OR python list
 
 def kmeans_process_2d(data, n_clusters, palette = None):
   import seaborn as sns
@@ -7,11 +7,11 @@ def kmeans_process_2d(data, n_clusters, palette = None):
   import numpy as np
   import matplotlib.pyplot as plt
 
-  if type(data) == type(np.array([])):
-    data = pd.DataFrame(data, columns=['x', 'y']).reset_index(drop=True)
-  else:
+  if type(data) == type(pd.DataFrame([])):
     data.columns = ['x', 'y']
     data.reset_index(drop=True)
+  else:
+    data = pd.DataFrame(data, columns=['x', 'y']).reset_index(drop=True)
 
   # random centroid 
   centroids = data.sample(n_clusters).sort_values('x').reset_index(drop=True)
