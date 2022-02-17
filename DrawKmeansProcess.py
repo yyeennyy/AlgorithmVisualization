@@ -105,10 +105,10 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
   sns.scatterplot(x='x', y='y', data=data)
   plt.scatter(centroids['x'], centroids['y'], marker='D', c='black') 
   plt.title('k-means algorithm', fontsize=15)
-  plt.savefig("{}.png".format(count))
+  plt.savefig("{0:05d}.png".format(count))
   plt.close(fig)
   count += 1
-
+  
 
   while(True):
     # reassign data
@@ -123,7 +123,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
                     legend = False)
     plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
     plt.title('k-means algorithm', fontsize=15)
-    plt.savefig("{}.png".format(count))
+    plt.savefig("{0:05d}.png".format(count))
     plt.close(fig)
     count += 1
     
@@ -139,7 +139,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
                      legend = False)
     plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
     plt.title('k-means algorithm', fontsize=15)
-    plt.savefig("{}.png".format(count))
+    plt.savefig("{0:05d}.png".format(count))
     plt.close(fig)
     count += 1
 
@@ -157,7 +157,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
 
   # delete tmp files
   for i in range(count):
-    os.remove("./kmeans/{}.png".format(i))
+    os.remove("./kmeans/{0:05d}.png".format(i))
   os.rmdir('./kmeans')
   
   return print('done : save success')
