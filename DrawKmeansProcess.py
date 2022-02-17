@@ -59,7 +59,7 @@ def kmeans_process_2d(data, n_clusters, palette = None):
 
  
 
-def gif_kmeans(data, n_clusters, palette):
+def gif_kmeans(data, n_clusters, palette, frame=600):
   import seaborn as sns
   import scipy as sp
   import pandas as pd
@@ -153,7 +153,7 @@ def gif_kmeans(data, n_clusters, palette):
 
   # return root dir
   os.chdir('../')
-  im.save('k-means.gif', save_all=True, append_images=images[1:], loop=0xff, duration=500)  # duration: 프레임 전환 속도
+  im.save('k-means.gif', save_all=True, append_images=images[1:], loop=0xff, duration=frame)  # duration: 프레임 전환 속도
 
   # delete tmp files
   for i in range(count):
