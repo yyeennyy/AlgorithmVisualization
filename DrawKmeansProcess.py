@@ -10,9 +10,9 @@ def kmeans_process_2d(data, n_clusters, palette = None):
   if type(data) == type(pd.DataFrame([])):
     data.columns = ['x', 'y']
     data.reset_index(drop=True)
-  else:
+  else: 
     data = pd.DataFrame(data, columns=['x', 'y']).reset_index(drop=True)
-
+    
   # random centroid 
   centroids = data.sample(n_clusters).sort_values('x').reset_index(drop=True)
 
