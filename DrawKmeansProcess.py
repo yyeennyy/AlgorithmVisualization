@@ -11,7 +11,8 @@ def kmeans_process_2d(data, n_clusters, palette = None):
     data.columns = ['x', 'y']
     data.reset_index(drop=True)
   else: 
-    data = pd.DataFrame(data, columns=['x', 'y']).reset_index(drop=True)
+    data = pd.DataFrame(data).reset_index(drop=True)
+    data.columns = ['x', 'y']
     
   # random centroid 
   centroids = data.sample(n_clusters).sort_values('x').reset_index(drop=True)
