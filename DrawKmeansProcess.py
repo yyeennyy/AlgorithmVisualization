@@ -59,7 +59,7 @@ def kmeans_process_2d(data, n_clusters, palette = None):
 
  
 
-def gif_kmeans(data, n_clusters, palette, frame=600):
+def gif_kmeans(data, n_clusters, palette, frame=1000):
   import seaborn as sns
   import scipy as sp
   import pandas as pd
