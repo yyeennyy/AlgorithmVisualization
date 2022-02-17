@@ -108,7 +108,6 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
   plt.savefig("{0:05d}.png".format(count))
   plt.close(fig)
   count += 1
-  print(count)
   
 
   while(True):
@@ -141,7 +140,7 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
     plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
     plt.title('k-means algorithm', fontsize=15)
     plt.savefig("{0:05d}.png".format(count))
-    print(count/2 + 1)
+    print((int) (count/2))
     plt.close(fig)
     count += 1
 
@@ -163,4 +162,3 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
   os.rmdir('./kmeans')
   
   return print('done : save success')
-  
