@@ -5,6 +5,7 @@ def kmeans_process_2d(data, n_clusters, palette = None):
   import scipy as sp
   import pandas as pd
   import numpy as np
+  import matplotlib.pyplot as plt
 
   if type(data) == type(np.array([])):
     data = pd.DataFrame(data, columns=['x', 'y']).reset_index(drop=True)
