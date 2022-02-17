@@ -90,7 +90,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
       print("existing directory 'kmeans' removed now beforg making dir 'kmeans'")
       os.makedirs('kmeans')
   except OSError:
-    print("Error: can't makedirs ./kmeans \n",
+    return print("Error: can't makedirs ./kmeans \n",
           "if your existing directory 'kmeans' has any files, this ERROR can be pop up")
 
 
@@ -124,6 +124,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
     plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
     plt.title('k-means algorithm', fontsize=15)
     plt.savefig("{0:05d}.png".format(count))
+    print(count)
     plt.close(fig)
     count += 1
     
@@ -140,6 +141,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
     plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
     plt.title('k-means algorithm', fontsize=15)
     plt.savefig("{0:05d}.png".format(count))
+    print(count)
     plt.close(fig)
     count += 1
 
@@ -147,7 +149,7 @@ def gif_kmeans(data, n_clusters, palette, frame=600):
   # start to make gif file
   # os.listdir() : return all files or dirs in working directory
   img_list = os.listdir()
-  img_list = [file_name for file_name in img_list]
+  img_list = sorted([file_name for file_name in img_list])
   images = [Image.open(file_name_with_path) for file_name_with_path in img_list]
   im = images[0]
 
