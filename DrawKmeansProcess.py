@@ -1,11 +1,12 @@
-# parameter 'data' : numpy array OR pd.DataFrame OR python list
+import seaborn as sns
+import scipy as sp
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
+
+# parameter 'data' : numpy array OR pd.DataFrame OR python list
 def kmeans_process_2d(data, n_clusters, palette = None):
-  import seaborn as sns
-  import scipy as sp
-  import pandas as pd
-  import numpy as np
-  import matplotlib.pyplot as plt
 
   if type(data) == type(pd.DataFrame([])):
     data.columns = ['x', 'y']
@@ -60,12 +61,6 @@ def kmeans_process_2d(data, n_clusters, palette = None):
  
 
 def gif_kmeans(data, n_clusters, palette, frame=1000):
-  import seaborn as sns
-  import scipy as sp
-  import pandas as pd
-  import numpy as np
-  import matplotlib.pyplot as plt
-
   import os
   from PIL import Image
   from IPython.display import Image as Img
