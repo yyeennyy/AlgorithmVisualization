@@ -104,6 +104,13 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
   plt.close(fig)
   count += 1
   
+  def drawFigure():
+    fig = plt.figure()
+    sns.scatterplot(x="x", y="y", hue="cluster", data=result, palette = palette,  
+                    legend = False)
+    plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
+    plt.title('k-means algorithm', fontsize=15)
+    return fig
 
   while(True):
     # reassign data
@@ -113,11 +120,7 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
     result["cluster"] = np.array(cluster_num)
 
     # reassign data - scatter
-    fig = plt.figure()
-    sns.scatterplot(x="x", y="y", hue="cluster", data=result, palette = palette,  
-                    legend = False)
-    plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
-    plt.title('k-means algorithm', fontsize=15)
+    fig = drawFigure()
     plt.savefig("{0:05d}.png".format(count))
     plt.close(fig)
     count += 1
@@ -129,11 +132,7 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
     centroids = centroids_
 
     # reassign centroid - scatter
-    fig = plt.figure()
-    sns.scatterplot(x="x", y="y", hue="cluster", data=result, palette = palette,
-                     legend = False)
-    plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
-    plt.title('k-means algorithm', fontsize=15)
+    fig = drawFigure()
     plt.savefig("{0:05d}.png".format(count))
     print((int) (count/2))
     plt.close(fig)
