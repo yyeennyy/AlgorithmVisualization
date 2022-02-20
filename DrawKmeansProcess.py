@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 # parameter 'data' : numpy array OR pd.DataFrame OR python list
+# parameter 'data' : numpy array OR pd.DataFrame OR python list
 def kmeans_process_2d(data, n_clusters, palette = None):
 
   if type(data) == type(pd.DataFrame([])):
@@ -26,6 +27,13 @@ def kmeans_process_2d(data, n_clusters, palette = None):
   plt.title('k-means algorithm', fontsize=15)
   plt.show()
 
+  def drawFigure():
+    fig = plt.figure()
+    sns.scatterplot(x="x", y="y", hue="cluster", data=result, palette = palette,  
+                    legend = False)
+    plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
+    plt.title('k-means algorithm', fontsize=15)
+    plt.show()
 
   while(True):
     # reassign data
@@ -36,11 +44,7 @@ def kmeans_process_2d(data, n_clusters, palette = None):
 
     # reassign data - scatter
     print("\nreassign data")
-    plt.subplots()
-    sns.scatterplot(x="x", y="y", hue="cluster", data=result, palette = palette)
-    plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
-    plt.title('k-means algorithm', fontsize=15)
-    plt.show()
+    drawFigure()
     
     # reassign centroid
     centroids_ = result.groupby("cluster").mean()
@@ -50,13 +54,10 @@ def kmeans_process_2d(data, n_clusters, palette = None):
 
     # reassign centroid - scatter
     print("\nreassign centroid")
-    plt.subplots()
-    sns.scatterplot(x="x", y="y", hue="cluster", data=result, palette = palette)
-    plt.scatter(centroids['x'], centroids['y'], marker='D', c='black')
-    plt.title('k-means algorithm', fontsize=15)
-    plt.show()
+    drawFigure()
 
   print("\ndone")
+
 
  
 
