@@ -49,7 +49,8 @@ def kmeans_process_2d(data, n_clusters, palette = None):
     # reassign centroid
     centroids_ = result.groupby("cluster").mean()
     centroids_ = pd.DataFrame(centroids_, columns=['x', 'y']).sort_values('x').reset_index(drop=True)
-    if (centroids_['x'].tolist() == centroids['x'].tolist() ): break
+    if (centroids_['x'].tolist() == centroids['x'].tolist() and
+        centroids_['y'].tolist() == centroids['y'].tolist()): break
     centroids = centroids_
 
     # reassign centroid - scatter
@@ -129,7 +130,8 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
     # reassign centroid
     centroids_ = result.groupby("cluster").mean()
     centroids_ = pd.DataFrame(centroids_, columns=['x', 'y']).sort_values('x').reset_index(drop=True)
-    if (centroids_['x'].tolist() == centroids['x'].tolist() ): break
+    if (centroids_['x'].tolist() == centroids['x'].tolist() and
+        centroids_['y'].tolist() == centroids['y'].tolist()): break
     centroids = centroids_
 
     # reassign centroid - scatter
