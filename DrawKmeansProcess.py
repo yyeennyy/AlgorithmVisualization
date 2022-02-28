@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# parameter 'data' : numpy array OR pd.DataFrame OR python list
+
 # parameter 'data' : numpy array OR pd.DataFrame OR python list
 def kmeans_process_2d(data, n_clusters, palette = None):
 
@@ -84,7 +84,7 @@ def gif_kmeans(data, n_clusters, palette, frame=1000):
       os.makedirs('kmeans')
     else:
       os.rmdir('./kmeans')
-      print("existing directory 'kmeans' removed now beforg making dir 'kmeans'")
+      print("existing directory 'kmeans' removed now before making dir 'kmeans'")
       os.makedirs('kmeans')
   except OSError:
     return print("Error: can't makedirs ./kmeans \n",
