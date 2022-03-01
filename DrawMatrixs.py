@@ -8,7 +8,7 @@ from IPython.display import display
 def draw_matrix_gif(matrix_list, N, M, frame=800, show=False):
 
   dir_name = './temp_your_matrix'
-  num_img_data = np.load('/content/MachineLearning/num_img_data.npy')
+  num_img_data = np.load('/AlgorithmVisualization/num_img_data.npy')
 
   def get_num_pix(num):
     try:
